@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 	<?php 
@@ -7,12 +7,12 @@
 	include 'config.php';
 	?>
 	<title>KIOS MALASNGODING</title>
-	<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="../assets/js/jquery-ui/jquery-ui.css">
-	<script type="text/javascript" src="../assets/js/jquery.js"></script>
-	<script type="text/javascript" src="../assets/js/jquery.js"></script>
-	<script type="text/javascript" src="../assets/js/bootstrap.js"></script>
-	<script type="text/javascript" src="../assets/js/jquery-ui/jquery-ui.js"></script>	
+	<link rel="stylesheet" type="text/css" href="../../dist/assets/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../../dist/assets/js/jquery-ui/jquery-ui.css">
+	<script type="text/javascript" src="../../dist/assets/js/jquery.js"></script>
+	<script type="text/javascript" src="../../dist/assets/js/jquery.js"></script>
+	<script type="text/javascript" src="../../dist/assets/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../../dist/assets/js/jquery-ui/jquery-ui.js"></script>	
 </head>
 <body>
 	<div class="navbar navbar-default">
@@ -33,10 +33,10 @@
 				</ul>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- modal input -->
-	<div id="modalpesan" class="modal fade">
+	<!-- <div id="modalpesan" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -89,4 +89,79 @@
 			<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>  Logout</a></li>			
 		</ul>
 	</div>
-	<div class="col-md-10">
+	<div class="col-md-10"> -->
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>General Dashboard &mdash; Stisla</title>
+
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="../dist/assets/modules/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../dist/assets/modules/fontawesome/css/all.min.css">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="../dist/assets/modules/jqvmap/dist/jqvmap.min.css">
+  <link rel="stylesheet" href="../dist/assets/modules/weather-icon/css/weather-icons.min.css">
+  <link rel="stylesheet" href="../dist/assets/modules/weather-icon/css/weather-icons-wind.min.css">
+  <link rel="stylesheet" href="../dist/assets/modules/summernote/summernote-bs4.css">
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="../dist/assets/css/style.css">
+  <link rel="stylesheet" href="../dist/assets/css/components.css">
+<!-- Start GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-94034622-3');
+</script>
+<!-- /END GA -->
+</head>
+<body>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <form class="form-inline mr-auto">
+          <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
+          </ul>
+       
+        </form>
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+		  <?php 
+			$use=$_SESSION['uname'];
+			$fo=mysql_query("select foto from admin where uname='$use'");
+			while($f=mysql_fetch_array($fo)){
+				?>				
+						<img alt="image" src="foto/<?php echo $f['foto']; ?>" class="rounded-circle mr-1">
+			
+				<?php 
+			}
+			?>		
+          
+            <div class="d-sm-none d-lg-inline-block"><?php echo $_SESSION['uname']  ?></div></a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <div class="dropdown-title">Logged in 5 min ago</div>
+              <a href="features-profile.html" class="dropdown-item has-icon">
+                <i class="far fa-user"></i> Profile
+              </a>
+              <a href="features-settings.html" class="dropdown-item has-icon">
+                <i class="fas fa-cog"></i> Settings
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item has-icon text-danger">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
